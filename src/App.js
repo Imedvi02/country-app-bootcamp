@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Countries from './pages/Countries';
 
 function App() {
+  // Provjeri localStorage i napravi state token
+  const [token, setToken] = useState(localStorage.getItem('token'));
+
+  // Funkcija koja sprema token u state i localStorage
+  const handleLoginSuccess = (token) => {
+    localStorage.setItem('token', token);
+    setToken(token);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<Login onLoginSuccess={handleLoginSuccess} />}
+        />
+        <Route
+          path="/countries"
+          element={token ? <Countries /> : <Navigate to="/" replace />}
+        />
+      </Routes>
+    </Router>
   );
 }
 

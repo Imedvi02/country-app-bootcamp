@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color, #f0f2f5);
+}
+
+.login-box {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.login-box label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.login-box input {
+  margin-bottom: 1.2rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 5px #1976d2;
+}
+
+.login-box button {
+  padding: 0.65rem;
+  font-size: 1.1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+}
+
+.login-box button:disabled {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+.login-box button:hover:not(:disabled) {
+  background-color: #1565c0;
+}
+
+.error-msg {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Glavni container u dark modeu */
+.login-container.dark-mode,
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0; /* Svijetli tekst za dobar kontrast */
+}
+
+/* Box u kojem je forma */
+.login-container.dark-mode .login-box {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* Label i tekst */
+.login-container.dark-mode label {
+  color: #cccccc;
+}
+
+/* Input polja */
+.login-container.dark-mode input {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  color: #ffffff;
+}
+
+/* Fokus na input */
+.login-container.dark-mode input:focus {
+  border-color: #90caf9;
+  box-shadow: 0 0 5px #90caf9;
+}
+
+/* Gumb */
+.login-container.dark-mode button {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: none;
+}
+
+.login-container.dark-mode button:hover:not(:disabled) {
+  background-color: #1976d2;
+}
+
+/* Poruke o grešci */
+.login-container.dark-mode .error-msg {
+  color: #ef5350;
+}
+
+/* Dark mode toggle label */
+.login-container.dark-mode .dark-mode-toggle {
+  color: #cccccc;
+}
+
